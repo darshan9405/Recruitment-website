@@ -6,6 +6,7 @@ import mongoose from 'mongoose'
 import cors from 'cors'
 import bodyParser from 'body-parser'
 import jobroute from './route/job-routes.js'
+import company from './route/company-routes.js'
 const app = express()
 
 app.use(bodyParser.json({ extended: true }))
@@ -15,6 +16,7 @@ app.use('/', route)
 app.use('/', skillroute)
 app.use('/', locationroute)
 app.use('/', jobroute)
+app.use('/', company)
 const PORT = 9000
 // const URL='mongodb+srv://recruitment_portal:Z1geEVBzBe5ZBYuX@cluster0.owdo8.mongodb.net/admin_portal?retryWrites=true&w=majority';
 const URL =

@@ -74,3 +74,22 @@ export const deleteJob = async id => {
 export const editJob = async (id, job) => {
   return await axios.put(`${url}/editjob/${id}`, job)
 }
+
+//Jobs API's
+
+export const getCompany = async id => {
+  id = id || ''
+  return await axios.get(`${url}/company/${id}`)
+}
+
+export const createcompany = async job => {
+  return await axios.post(`${url}/createcompany`, job)
+}
+
+export const deleteCompany = async id => {
+  return await axios.delete(`${url}/deletecompany/${id}`)
+}
+
+export const editCompany = async (id, company) => {
+  return await axios.put(`${url}/editcompany/${id}`, company)
+}

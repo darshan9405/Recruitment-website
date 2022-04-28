@@ -59,7 +59,6 @@ const EditJob = props => {
   const { id } = useParams()
   useEffect(async () => {
     const response = await getJob(id)
-    console.table(response.data)
     setJob(response.data)
   }, [])
   const [job, setJob] = useState(initialValues)

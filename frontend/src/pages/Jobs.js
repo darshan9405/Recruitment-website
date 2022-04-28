@@ -114,7 +114,7 @@ const Jobs = () => {
             <div className='info_container'>
               <div className='info_heading'> Inactive Jobs </div>{' '}
               <div className='info_count'>
-                {jobs.filter(ele => ele.Status === 'Active').length}
+                {jobs.filter(ele => ele.Status === 'Inactive').length}
               </div>{' '}
             </div>{' '}
           </div>{' '}

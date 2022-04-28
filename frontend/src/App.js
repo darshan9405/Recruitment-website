@@ -27,6 +27,7 @@ import CreateCompany from './pages/Createcompany'
 import EditJob from './pages/Editjob'
 import JobApplication from './pages/jobApplication'
 import CandidateDatabase from './pages/candidateDatabase'
+import EditCompany from './pages/Editcompany.js'
 function App () {
   const [inactive, setInactive] = useState(false)
   const isloggedin = true
@@ -98,6 +99,9 @@ function App () {
                 </Route>
                 <Route path={'/admin/createcompany'}>
                   <CreateCompany />
+                </Route>
+                <Route path={'/admin/editcompany/:id'}>
+                  <EditCompany />
                 </Route>
                 <Route path={'/admin/job-applications'}>
                   <JobApplication />

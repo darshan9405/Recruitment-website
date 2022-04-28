@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useHistory } from 'react-router-dom'
+import { useHistory, useParams } from 'react-router-dom'
 import {
   Button,
   FormControl,
@@ -7,10 +7,10 @@ import {
   Input,
   makeStyles,
   InputLabel,
-  Typography,
+  Typography
 } from '@material-ui/core'
 import avatar from '../assets/avatar.png'
-import { createcompany } from '../Service/api'
+import { editCompany, getCompany } from '../Service/api'
 import { TableBody } from 'semantic-ui-react'
 const useStyles = makeStyles({
   inputTag: {
@@ -39,25 +39,36 @@ const useStyles = makeStyles({
     margin: '1vh 1vw'
   }
 })
-
-const CreateCompany = props => {
+const EditCompany = props => {
   const classes = useStyles()
   const history = useHistory()
   const companyObject = {
     companyname: '',
     companyemail: '',
     companyaddress: '',
-    // logo:'',
     companyphone: '',
     companywebsite: ''
   }
+  const { id } = useParams()
+
   const [company, setCompany] = useState(companyObject)
+  useEffect(async () => {
+    const response = await getCompany(id)
+    setCompany(response.data)
+  }, [])
+  const {
+    companyname,
+    companyemail,
+    companyaddress,
+    companyphone,
+    companywebsite
+  } = company
   const changeHandler = event => {
     setCompany({ ...company, [event.target.name]: event.target.value })
   }
   const saveButtonHandler = async event => {
-    await createcompany(company)
-    history.push('./job-company')
+    await editCompany(id, company)
+    history.push('/admin/job-company')
   }
 
   const PreviewImage = () => {
@@ -86,6 +97,7 @@ const CreateCompany = props => {
             onChange={changeHandler}
             className={classes.inputTag}
             name='companyname'
+            value={companyname}
           />
         </FormControl>
         <FormControl>
@@ -94,6 +106,7 @@ const CreateCompany = props => {
             onChange={changeHandler}
             className={classes.inputTag}
             name='companyphone'
+            value={companyphone}
           />
         </FormControl>
         <FormControl>
@@ -102,6 +115,7 @@ const CreateCompany = props => {
             onChange={changeHandler}
             className={classes.inputTag}
             name='companywebsite'
+            value={companywebsite}
           />
         </FormControl>
         <FormControl>
@@ -110,6 +124,7 @@ const CreateCompany = props => {
             onChange={changeHandler}
             className={classes.inputTag}
             name='companyemail'
+            value={companyemail}
           />
         </FormControl>
         <label className={classes.formcontrol}>Company Logo</label>
@@ -152,6 +167,7 @@ const CreateCompany = props => {
             onChange={changeHandler}
             className={classes.inputTag}
             name='companyaddress'
+            value={companyaddress}
           />
         </FormControl>
         <div style={{ display: 'flex', flexDirection: 'row' }}>
@@ -170,4 +186,4 @@ const CreateCompany = props => {
   s
 }
 
-export default CreateCompany
+export default EditCompany
