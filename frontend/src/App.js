@@ -28,6 +28,7 @@ import EditJob from './pages/Editjob'
 import JobApplication from './pages/jobApplication'
 import CandidateDatabase from './pages/candidateDatabase'
 import EditCompany from './pages/Editcompany.js'
+import Delete from './pages/Delete'
 function App () {
   const [inactive, setInactive] = useState(false)
   const isloggedin = true
@@ -134,7 +135,7 @@ function App () {
                   <Profile />
                 </Route>
                 <Route exact path={'/admin/settings/delete-account'}>
-                  <Profile />
+                  <Delete />
                 </Route>
                 <Route path={'/admin/settings/zoom-setting'}>
                   <Profile />
