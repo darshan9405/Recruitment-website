@@ -183,7 +183,6 @@ const EditCompany = props => {
       </FormGroup>
     </div>
   )
-  s
 }
 
 export default EditCompany

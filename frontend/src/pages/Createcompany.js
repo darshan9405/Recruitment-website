@@ -167,7 +167,6 @@ const CreateCompany = props => {
       </FormGroup>
     </div>
   )
-  s
 }
 
 export default CreateCompany

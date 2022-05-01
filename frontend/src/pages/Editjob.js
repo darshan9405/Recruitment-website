@@ -9,6 +9,8 @@ import {
   Typography,
   TextareaAutosize
 } from '@material-ui/core'
+import { editJob, getJob } from '../Service/api'
+import { useHistory, useParams } from 'react-router-dom'
 
 const useStyles = makeStyles({
   inputTag: {
@@ -40,8 +42,7 @@ const useStyles = makeStyles({
     padding: '1vh 1vw'
   }
 })
-import { editJob, getJob } from '../Service/api'
-import { useHistory, useParams } from 'react-router-dom'
+
 const initialValues = {
   company: '',
   title: '',
@@ -178,7 +179,7 @@ const EditJob = props => {
       </FormGroup>
     </div>
   )
-  s
+  
 }
 
 export default EditJob

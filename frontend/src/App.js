@@ -29,6 +29,13 @@ import JobApplication from './pages/jobApplication'
 import CandidateDatabase from './pages/candidateDatabase'
 import EditCompany from './pages/Editcompany.js'
 import Delete from './pages/Delete'
+import Zoom from './pages/Zoom'
+import Subscribe from './pages/Subscribe'
+import Team from './pages/Team'
+import CreateTeam from './pages/CreateTeam'
+import Interview from './pages/Interview'
+import JobOnboard from './pages/JobOnboard'
+
 function App () {
   const [inactive, setInactive] = useState(false)
   const isloggedin = true
@@ -111,16 +118,19 @@ function App () {
                   <CandidateDatabase />
                 </Route>
                 <Route exact path={'/admin/job-onboard'}>
-                  <Skills />
+                  <JobOnboard />
                 </Route>
                 <Route exact path={'/admin/interview-schedule'}>
-                  <Skills />
+                  <Interview />
                 </Route>
                 <Route exact path={'/admin/team'}>
-                  <Skills />
+                  <Team />
+                </Route>
+                <Route exact path={'/admin/team/create-team'}>
+                  <CreateTeam />
                 </Route>
                 <Route exact path={'/admin/subscribe'}>
-                  <Skills />
+                  <Subscribe />
                 </Route>
                 <Route exact path={'/admin/profile'}>
                   <Profile />
@@ -138,7 +148,7 @@ function App () {
                   <Delete />
                 </Route>
                 <Route path={'/admin/settings/zoom-setting'}>
-                  <Profile />
+                  <Zoom />
                 </Route>
                 <Redirect to='/admin/dashboard' />
               </Switch>
